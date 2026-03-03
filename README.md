@@ -63,8 +63,9 @@ This approach mirrors the successful SegWit UASF of 2017, where economic nodes e
 
 Alternative recovery schemes like those proposed by BitMEX Research require excessive protocol complexity and node burden; therefore this BIP opts for a simple, enforceable freeze for the most vulnerable and ancient coins.
 
-This is not a confiscation, because an ultimatum period allows anyone holding those very old, cryptographically vulnerable pre‑2013 coins to move them. Only coins that remain unmoved after the deadline would be frozen, making the process voluntary rather than coercive. 
+This is not a confiscation, because an ultimatum period allows anyone holding those very old, cryptographically vulnerable pre‑2013 coins to move them. Only coins that remain unmoved after the deadline would be frozen, making the process voluntary rather than coercive. Taproot spending vulnerabilities and post-2013 address reuse thefts are strictly out of scope for this BIP.
 
 Freezing only very old coins (pre‑2013) that are already cryptographically vulnerable prevents any future narrative that governments or developers could arbitrarily freeze inconvenient addresses today, which are still cryptographically protected. It removes the narrative weapon used by “full‑opt‑in” maximalists who argue that any precedent could later be applied to modern and secure addresses. 
+
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
