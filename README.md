@@ -14,6 +14,7 @@ We distinguish between two types of risk:
 * **Individual Risk (Post-2013):** Negligent users who fail to migrate despite having the tools (Hashed addresses like P2PKH/SegWit provide a first-layer defense until a public key is revealed).
 
 It is mathematically and socially implausible to save 100% of the supply. This BIP proposes to save the Integrity of the Network by freezing the most dangerous attack vectors.
+Crucially, SF‑QMR does not ignore the vulnerability of post‑2013 outputs; it simply recognizes a hierarchy of risk. While Tier 1 (0–100k) and Tier 2 outputs represent a threat to the network’s collective trust and could trigger a collapse of confidence, post‑2013 outputs constitute an Individual‑Security risk. The protocol must prioritize the preservation of the Ledger over the protection of a single inattentive user. Once the ‘Core’ of the supply is secured, the network can debate extensions of SF‑QMR to later tiers without the pressure of an immediate systemic threat.
 
 ## Specification
 
@@ -119,6 +120,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
