@@ -1,7 +1,7 @@
 *BIP: XXX · Layer: Consensus (soft fork) · Title: Satoshi-First Quantum Mitigation Roadmap (SF-QMR) · Author: domeffe · Status: Draft · Type: Standards Track · Created: 2026-03-03 · License: BSD-2-Clause · Version: 1.0*
 
 ## Abstract
-This proposal defines a phased transition to neutralize the systemic risk posed by ECDSA (secp256k1) vulnerabilities in the presence of a Cryptographically Relevant Quantum Computer (CRQC). It mandates a "Protocol-Level Vaulting" of Satoshi-era outputs (Blocks 0-100k) and a mandatory migration period for pre-2013 legacy outputs. Unlike previous "full opt-in" proposals, this BIP (“partial opt-in”) prioritizes network fungibility and the 21M supply integrity over the indefinite validity of obsolete script types. Bitcoin must remain immutable only if it stays resistant to cryptographic attacks.
+This proposal defines a phased transition to neutralize the systemic risk posed by ECDSA (secp256k1) vulnerabilities in the presence of a Cryptographically Relevant Quantum Computer (CRQC). It mandates a "Protocol-Level Vaulting" of Satoshi-era outputs (Blocks 0-100k) and a mandatory migration period for pre-2013 legacy outputs. Unlike previous "full opt-in" proposals, this BIP (“partial opt-in”) prioritizes network fungibility and the 21M supply integrity over the indefinite validity of obsolete script types. The proposal offers two mutually exclusive governance paths for long‑term handling of vulnerable outputs: an Indefinite Freeze or a long‑term Freeze requiring explicit consensus renewal. Only one of these models can be activated, and the community must select which path to adopt during the activation process. Bitcoin must remain fully immutable only if it stays resistant to cryptographic attacks.
 
 ## Motivation
 As observed by the community, the continued existence of ~4 million BTC in ECDSA-only, non-hashed public key outputs (P2PK) represents a "Cryptographic Overflow Bug." If a CRQC moves these coins, the narrative of Bitcoin as a secure store of value will suffer a Narrative Collapse. The exposure of 1.1M BTC in P2PK outputs represents a risk to economic‑consensus stability, where a loss of trust in mathematical scarcity triggers a collapse of the network’s thermodynamic security.
@@ -119,6 +119,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
