@@ -12,7 +12,7 @@ Version: 1.0
 This proposal defines a phased transition to neutralize the systemic risk posed by ECDSA (secp256k1) vulnerabilities in the presence of a Cryptographically Relevant Quantum Computer (CRQC). It mandates a "Protocol-Level Vaulting" of Satoshi-era outputs (Blocks 0-100k) and a mandatory migration period for pre-2013 legacy outputs. Unlike previous "full opt-in" proposals, this BIP (“partial opt-in”) prioritizes network fungibility and the 21M supply integrity over the indefinite validity of obsolete script types. Bitcoin must remain immutable only if it stays resistant to cryptographic attacks.
 
 ## Motivation
-As observed by the community, the continued existence of ~4 million BTC in ECDSA-only, non-hashed public key outputs (P2PK) represents a "Cryptographic Overflow Bug." If a CRQC moves these coins, the narrative of Bitcoin as a secure store of value will suffer a Narrative Collapse.
+As observed by the community, the continued existence of ~4 million BTC in ECDSA-only, non-hashed public key outputs (P2PK) represents a "Cryptographic Overflow Bug." If a CRQC moves these coins, the narrative of Bitcoin as a secure store of value will suffer a Narrative Collapse. The exposure of 1.1M BTC in P2PK outputs represents a risk to economic‑consensus stability, where a loss of trust in mathematical scarcity triggers a collapse of the network’s thermodynamic security.
 
 We distinguish between two types of risk:
 
@@ -30,13 +30,14 @@ After a 12-month activation window, all outputs in blocks 0 to 100,000 that util
 * **Target:** Approximately 1.1 million BTC.
 
 ### 2. The Legacy Purge (T + 36 Months)
-All P2PK and un-hashed legacy outputs created before January 1, 2013, must be migrated to a Quantum-Resistant (QR) scheme (e.g., SLH-DSA or a hybrid Taproot leaf).
+All P2PK and un‑hashed legacy outputs created before block height 210000 (approximately late 2012) must be migrated to a Quantum‑Resistant (QR) scheme (e.g., SLH‑DSA or a hybrid Taproot leaf). Block height 210000 (≈ late 2012) marks the period in which the overwhelming majority of P2PK and un‑hashed outputs were created. These outputs expose raw public keys directly on‑chain, making them the most vulnerable class under quantum key‑recovery attacks.
 
 * **Deadline:** 36 months from activation.
 * **Effect:** After the deadline, the `secp256k1` `OP_CHECKSIG` and `OP_CHECKSIGVERIFY` opcodes are disabled for these specific UTXOs.
 
 ### 3. Acceptance of the "Entropy Tax"
 Post-2013 outputs (P2PKH, SegWit, Taproot) are not frozen by this BIP. While they remain vulnerable once a public key is revealed, the hashing of the public key (RIPEMD160(SHA256(P))) provides a temporary "Quantum Shield." We accept the loss of the ~4-5% of supply held by negligent post-2013 users (opt-in) as an unavoidable "Entropy Tax" that does not threaten the systemic floor of the network.
+We acknowledge that addressing post‑2013 quantum vulnerabilities will require deeper technical integration; our primary objective in this BIP is to remove the systemic risk to the network, and it is not feasible to solve the entire quantum‑security problem within a single proposal.
 
 ## Rationale
 * **Why Freeze?** Following the 2010 Value Overflow precedent, the protocol must intervene when a technical flaw threatens the total supply.
@@ -91,6 +92,7 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
+
 
 
 
