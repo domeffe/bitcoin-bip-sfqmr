@@ -84,6 +84,8 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 - It prevents sudden **inflationary pressure** from the potential reactivation of Satoshi‑era coins.
 - It ensures **market stability across generations**, while avoiding any narrative of arbitrary or politically motivated intervention.
 
+### Tier 3 (Optional): 50‑Year Freeze for All Remaining Vulnerable Addresses
+Tier 3 is an optional extension of SF‑QMR that applies a 50‑year freeze to all remaining vulnerable addresses, including post‑2013 outputs whose public keys have been revealed. This tier does not address systemic risk—already neutralized by Tier 1 and Tier 2—but offers an additional long‑term protection layer for the broader address space. Tier 3 is not activated by default; it requires explicit community approval and follows the same governance model chosen at activation (either Indefinite Freeze or 50‑Year Freeze with consensus renewal). In theory, after 50 years, holders might regain spendability through zero‑knowledge (ZK) proofs derived from their HD seed, allowing ownership to be demonstrated without revealing a quantum‑breakable public key.
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
 
@@ -120,6 +122,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
