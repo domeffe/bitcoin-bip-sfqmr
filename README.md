@@ -79,7 +79,7 @@ Freezing only very old coins (pre‑2013) that are already cryptographically vul
 
 ### Automatic / Consensus Renewal
 - After 50 years, the freeze must be reaffirmed by renewed network consensus. Without explicit consensus renewal, the rule cannot continue to apply.
-- If the risk of Indistinguishability persists — meaning it remains impossible to reliably differentiate the original owner from a quantum thief — the freeze can only continue if the network explicitly renews consensus after the 50‑year term.
+- The freeze can only continue if the network explicitly renews consensus after the 50‑year term.
 
 ### Legal Chaos Under Quantum Conditions: No KYC or Manual Recovery
 Once private keys can be reproduced by anyone with quantum capabilities, the legal system becomes unworkable. Multiple actors could simultaneously claim ownership of the same pre‑2013 outputs, each presenting a perfectly valid signature generated through quantum key‑recovery. Courts would be flooded with parallel, contradictory claims, and no real authority would be able to determine who the legitimate owner was. This creates a state of complete legal chaos, where property rights become unenforceable and every dispute is technically irresolvable.
@@ -92,6 +92,7 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
+
 
 
 
