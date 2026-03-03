@@ -1,7 +1,7 @@
 *BIP: XXX · Layer: Consensus (soft fork) · Title: Satoshi-First Quantum Mitigation Roadmap (SF-QMR) · Author: domeffe · Status: Draft · Type: Standards Track · Created: 2026-03-03 · License: BSD-2-Clause · Version: 1.0*
 
 ## Abstract
-This proposal defines a phased transition to neutralize the systemic risk posed by ECDSA (secp256k1) vulnerabilities in the presence of a Cryptographically Relevant Quantum Computer (CRQC). It mandates a "Protocol-Level Vaulting" of Satoshi-era outputs (Blocks 0-100k) and a mandatory migration period for pre-2013 legacy outputs. Unlike previous "full opt-in" proposals, this BIP (“partial opt-in”) prioritizes network fungibility and the 21M supply integrity over the indefinite validity of obsolete script types. The proposal offers two mutually exclusive governance paths for long‑term handling of vulnerable outputs: an Indefinite Freeze or a long‑term Freeze requiring explicit consensus renewal. Only one of these models can be activated, and the community must select which path to adopt during the activation process. Bitcoin must remain fully immutable only if it stays resistant to cryptographic attacks.
+This proposal defines a phased transition to neutralize the systemic risk posed by ECDSA (secp256k1) vulnerabilities in the presence of a Cryptographically Relevant Quantum Computer (CRQC). It mandates a "Protocol-Level Vaulting" of Satoshi-era outputs (Blocks 0-100k) and a mandatory migration period for pre-2013 legacy outputs. Unlike previous "full opt-in" proposals, this BIP (“partial opt-in”) prioritizes network fungibility and the 21M supply integrity over the indefinite validity of obsolete script types. The proposal offers two mutually exclusive governance paths for long‑term handling of vulnerable outputs: an Indefinite Freeze or a long‑term "Hybernation" requiring explicit consensus renewal. Only one of these models can be activated, and the community must select which path to adopt during the activation process. Hibernation could, in theory, allow funds to be recovered by leveraging HD seeds and proving ownership through Zero‑Knowledge proofs. Bitcoin must remain fully immutable only if it stays resistant to cryptographic attacks.
 
 ## Motivation
 As observed by the community, the continued existence of ~4 million BTC in ECDSA-only, non-hashed public key outputs (P2PK) represents a "Cryptographic Overflow Bug." If a CRQC moves these coins, the narrative of Bitcoin as a secure store of value will suffer a Narrative Collapse. The exposure of 1.1M BTC in P2PK outputs represents a risk to economic‑consensus stability, where a loss of trust in mathematical scarcity triggers a collapse of the network’s thermodynamic security.
@@ -72,8 +72,8 @@ Freezing only very old coins (pre‑2013) that are already cryptographically vul
 - During this period, they cannot be spent, transferred, or re‑activated.
 
 ### Automatic / Consensus Renewal
-- After 50 years, the freeze must be reaffirmed by renewed network consensus. Without explicit consensus renewal, the rule cannot continue to apply.
-- The freeze can only continue if the network explicitly renews consensus after the 50‑year term.
+- After 50 years, the freeze (i.e., hibernation) must be reaffirmed by renewed network consensus. Without explicit consensus renewal, the rule cannot continue to apply.
+- The "hibernation" can only continue if the network explicitly renews consensus after the 50‑year term.
 
 ### Legal Chaos Under Quantum Conditions: No KYC or Manual Recovery
 Once private keys can be reproduced by anyone with quantum capabilities, the legal system becomes unworkable. Multiple actors could simultaneously claim ownership of the same pre‑2013 outputs, each presenting a perfectly valid signature generated through quantum key‑recovery. Courts would be flooded with parallel, contradictory claims, and no real authority would be able to determine who the legitimate owner was. This creates a state of complete legal chaos, where property rights become unenforceable and every dispute is technically irresolvable.
@@ -84,8 +84,8 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 - It prevents sudden **inflationary pressure** from the potential reactivation of Satoshi‑era coins.
 - It ensures **market stability across generations**, while avoiding any narrative of arbitrary or politically motivated intervention.
 
-### Tier 3 (Optional): 50‑Year Freeze for All Remaining Vulnerable Addresses
-Tier 3 is an optional extension of SF‑QMR that applies a 50‑year freeze to all remaining vulnerable addresses, including post‑2013 outputs whose public keys have been revealed. This tier does not address systemic risk—already neutralized by Tier 1 and Tier 2—but offers an additional long‑term protection layer for the broader address space. Tier 3 is not activated by default; it requires explicit community approval and follows the same governance model chosen at activation (either Indefinite Freeze or 50‑Year Freeze with consensus renewal). In theory, after 50 years, holders might regain spendability through zero‑knowledge (ZK) proofs derived from their HD seed, allowing ownership to be demonstrated without revealing a quantum‑breakable public key.
+### Tier 3 (Optional): 50‑Year Hibernation for All Remaining Vulnerable Addresses
+Tier 3 is an optional extension of SF‑QMR that applies a 50‑year hibernation to all remaining vulnerable addresses, including post‑2013 outputs whose public keys have been revealed. This tier does not address systemic risk—already neutralized by Tier 1 and Tier 2—but offers an additional long‑term protection layer for the broader address space. Tier 3 is not activated by default; it requires explicit community approval and follows the same governance model chosen at activation (either Indefinite Freeze or 50‑Year hibernation with consensus renewal). In theory, after 50 years, holders might regain spendability through zero‑knowledge (ZK) proofs derived from their HD seed, allowing ownership to be demonstrated without revealing a quantum‑breakable public key.
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
 
@@ -122,6 +122,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
