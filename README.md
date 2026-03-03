@@ -1,12 +1,4 @@
-BIP: XXX
-Layer: Consensus (soft fork)
-Title: Satoshi-First Quantum Mitigation Roadmap (SF-QMR)
-Author: domeffe
-Status: Draft
-Type: Standards Track
-Created: 2026-03-03
-License: BSD-2-Clause 
-Version: 1.0
+*BIP: XXX · Layer: Consensus (soft fork) · Title: Satoshi-First Quantum Mitigation Roadmap (SF-QMR) · Author: domeffe · Status: Draft · Type: Standards Track · Created: 2026-03-03 · License: BSD-2-Clause · Version: 1.0*
 
 ## Abstract
 This proposal defines a phased transition to neutralize the systemic risk posed by ECDSA (secp256k1) vulnerabilities in the presence of a Cryptographically Relevant Quantum Computer (CRQC). It mandates a "Protocol-Level Vaulting" of Satoshi-era outputs (Blocks 0-100k) and a mandatory migration period for pre-2013 legacy outputs. Unlike previous "full opt-in" proposals, this BIP (“partial opt-in”) prioritizes network fungibility and the 21M supply integrity over the indefinite validity of obsolete script types. Bitcoin must remain immutable only if it stays resistant to cryptographic attacks.
@@ -127,6 +119,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
