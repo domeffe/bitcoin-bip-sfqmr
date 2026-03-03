@@ -31,7 +31,7 @@ After a 12-month activation window, all outputs in blocks 0 to 100,000 that util
 * **Target:** Approximately 1.1 million BTC.
 
 ### 2. The Legacy Purge (T + 36 Months)
-All P2PK and un‑hashed legacy outputs created before block height 210000 (approximately late 2012) must be migrated to a Quantum‑Resistant (QR) scheme (e.g., SLH‑DSA or a hybrid Taproot leaf). Block height 210000 (≈ late 2012) marks the period in which the overwhelming majority of P2PK and un‑hashed outputs were created. These outputs expose raw public keys directly on‑chain, making them the most vulnerable class under quantum key‑recovery attacks.
+All P2PK and un‑hashed legacy outputs created before block height 210000 (approximately late 2012) must be migrated to a Quantum‑Resistant (QR) scheme (e.g., SLH‑DSA or a hybrid Taproot leaf or any future consensus-approved quantum-resistant scheme). Block height 210000 (≈ late 2012) marks the period in which the overwhelming majority of P2PK and un‑hashed outputs were created. These outputs expose raw public keys directly on‑chain, making them the most vulnerable class under quantum key‑recovery attacks.
 
 * **Deadline:** 36 months from activation (T + 36).
 * **Effect:** After the deadline, any transaction input spending a UTXO created at or before height 210,000 with a scriptPubKey matching the pattern [pubkey] OP_CHECKSIG SHALL be considered invalid by consensus, regardless of the validity of the provided ECDSA signature.
@@ -105,13 +105,27 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 ### 2. Legacy Purge (Tier 2)
 **Criteria** — Any UTXO created at `block_height <= 210000` with a `scriptPubKey` matching the P2PK definition.  
 **Deadline** — `MTP >= T_activation + 94,608,000` seconds (≈ 3 years).  
-**Effect** — Spending attempts **SHALL be invalid**, regardless of signature validity, for the same reason: broken signatures are not valid authorization.
+**Effect** — Spending attempts **SHALL be invalid**, regardless of signature validity, for the same reason: broken signatures are not valid authorization. Tier 1 rules take precedence at T+12, Tier 2 extends restriction at T+36.
 
 ---
 
 ### 3. The 50‑Year Security Vault
 **Duration** — `1,576,800,000` seconds (≈ 50 solar years).  
 **Renewal** — After each 50‑year interval, the freeze **must be reaffirmed by renewed network consensus**. Without explicit consensus renewal, the rule cannot continue to apply.
+
+---
+
+### 4. Formal Definition of Targeted P2PK Outputs
+
+For the purposes of this BIP, an output SHALL be classified as a targeted P2PK output if and only if its `scriptPubKey` matches the following exact byte‑level structure:
+
+- **Pattern** — `[PushData] [OP_CHECKSIG]`
+- **PushData** — A single canonical data push of:
+  - **33 bytes** (compressed public key starting with `0x02` or `0x03`), or  
+  - **65 bytes** (uncompressed public key starting with `0x04`)
+- **OP_CHECKSIG** — The single byte `0xAC`
+
+**Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
 
 
 
