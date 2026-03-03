@@ -5,7 +5,7 @@ This proposal defines a phased transition to neutralize the systemic risk posed 
 
 ## Motivation
 As observed by the community, the continued existence of ~4 million BTC in ECDSA-only, non-hashed public key outputs (P2PK) represents a "Cryptographic Overflow Bug." If a CRQC moves these coins, the narrative of Bitcoin as a secure store of value will suffer a Narrative Collapse. The exposure of 1.1M BTC in P2PK outputs represents a risk to economic‑consensus stability, where a loss of trust in mathematical scarcity triggers a collapse of the network’s thermodynamic security.
-This proposal introduces, for the first time, a class of UTXOs that become invalid even if a signature is provided. Quantum‑broken signatures are not ‘valid’ proofs of ownership, because once a key can be reproduced by anyone, the signature no longer represents authorization. There is no property without cryptographic security. 
+This proposal introduces a class of UTXOs that become invalid even if a signature is provided. Quantum‑broken signatures are not ‘valid’ proofs of ownership, because once a key can be reproduced by anyone, the signature no longer represents authorization. There is no property without cryptographic security. 
 Solar years are used in the main text for clarity, while exact Median-Time-Past are specified in the Appendix at the end of the document.
 
 We distinguish between two types of risk:
