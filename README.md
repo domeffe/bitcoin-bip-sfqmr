@@ -13,6 +13,7 @@ This proposal defines a phased transition to neutralize the systemic risk posed 
 
 ## Motivation
 As observed by the community, the continued existence of ~4 million BTC in ECDSA-only, non-hashed public key outputs (P2PK) represents a "Cryptographic Overflow Bug." If a CRQC moves these coins, the narrative of Bitcoin as a secure store of value will suffer a Narrative Collapse. The exposure of 1.1M BTC in P2PK outputs represents a risk to economic‑consensus stability, where a loss of trust in mathematical scarcity triggers a collapse of the network’s thermodynamic security.
+This proposal introduces, for the first time, a class of UTXOs that become invalid even if a signature is provided. Quantum‑broken signatures are not ‘valid’ proofs of ownership, because once a key can be reproduced by anyone, the signature no longer represents authorization.
 
 We distinguish between two types of risk:
 
@@ -77,9 +78,8 @@ Freezing only very old coins (pre‑2013) that are already cryptographically vul
 - During this period, they cannot be spent, transferred, or re‑activated.
 
 ### Automatic / Consensus Renewal
-- At the end of the 50‑year term, the protocol performs an **automatic cryptographic status check**.
-- If the risk of **Indistinguishability** persists — meaning it is still impossible to reliably differentiate the original owner from a quantum attacker — the freeze is **extended for another 50 years** via soft‑fork.
-- This renewal cycle repeats until the cryptographic environment guarantees that ownership can be proven without ambiguity.
+- After 50 years, the freeze must be reaffirmed by renewed network consensus. Without explicit consensus renewal, the rule cannot continue to apply.
+- If the risk of Indistinguishability persists — meaning it remains impossible to reliably differentiate the original owner from a quantum thief — the freeze can only continue if the network explicitly renews consensus after the 50‑year term.
 
 ### Legal Chaos Under Quantum Conditions: No KYC or Manual Recovery
 Once private keys can be reproduced by anyone with quantum capabilities, the legal system becomes unworkable. Multiple actors could simultaneously claim ownership of the same pre‑2013 outputs, each presenting a perfectly valid signature generated through quantum key‑recovery. Courts would be flooded with parallel, contradictory claims, and no real authority would be able to determine who the legitimate owner was. This creates a state of complete legal chaos, where property rights become unenforceable and every dispute is technically irresolvable.
@@ -92,6 +92,7 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
+
 
 
 
