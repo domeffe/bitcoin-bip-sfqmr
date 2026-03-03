@@ -33,8 +33,8 @@ After a 12-month activation window, all outputs in blocks 0 to 100,000 that util
 ### 2. The Legacy Purge (T + 36 Months)
 All P2PK and un‑hashed legacy outputs created before block height 210000 (approximately late 2012) must be migrated to a Quantum‑Resistant (QR) scheme (e.g., SLH‑DSA or a hybrid Taproot leaf). Block height 210000 (≈ late 2012) marks the period in which the overwhelming majority of P2PK and un‑hashed outputs were created. These outputs expose raw public keys directly on‑chain, making them the most vulnerable class under quantum key‑recovery attacks.
 
-* **Deadline:** 36 months from activation.
-* **Effect:** After the deadline, the `secp256k1` `OP_CHECKSIG` and `OP_CHECKSIGVERIFY` opcodes are disabled for these specific UTXOs.
+* **Deadline:** 36 months from activation (T + 36).
+* **Effect:** After the deadline, any transaction input spending a UTXO created at or before height 210,000 with a scriptPubKey matching the pattern [pubkey] OP_CHECKSIG SHALL be considered invalid by consensus, regardless of the validity of the provided ECDSA signature.
 
 ### 3. Acceptance of the "Entropy Tax"
 Post-2013 outputs (P2PKH, SegWit, Taproot) are not frozen by this BIP. While they remain vulnerable once a public key is revealed, the hashing of the public key (RIPEMD160(SHA256(P))) provides a temporary "Quantum Shield." We accept the loss of the ~4-5% of supply held by negligent post-2013 users (opt-in) as an unavoidable "Entropy Tax" that does not threaten the systemic floor of the network.
@@ -92,6 +92,7 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
+
 
 
 
