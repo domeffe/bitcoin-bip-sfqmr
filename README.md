@@ -13,7 +13,7 @@ This proposal defines a phased transition to neutralize the systemic risk posed 
 
 ## Motivation
 As observed by the community, the continued existence of ~4 million BTC in ECDSA-only, non-hashed public key outputs (P2PK) represents a "Cryptographic Overflow Bug." If a CRQC moves these coins, the narrative of Bitcoin as a secure store of value will suffer a Narrative Collapse. The exposure of 1.1M BTC in P2PK outputs represents a risk to economic‑consensus stability, where a loss of trust in mathematical scarcity triggers a collapse of the network’s thermodynamic security.
-This proposal introduces, for the first time, a class of UTXOs that become invalid even if a signature is provided. Quantum‑broken signatures are not ‘valid’ proofs of ownership, because once a key can be reproduced by anyone, the signature no longer represents authorization.
+This proposal introduces, for the first time, a class of UTXOs that become invalid even if a signature is provided. Quantum‑broken signatures are not ‘valid’ proofs of ownership, because once a key can be reproduced by anyone, the signature no longer represents authorization. Solar years are used in the main text for clarity, while exact Median-Time-Past are specified in the Appendix at the end of the document.
 
 We distinguish between two types of risk:
 
@@ -25,7 +25,7 @@ It is mathematically and socially implausible to save 100% of the supply. This B
 ## Specification
 
 ### 1. The Satoshi-Block Freeze (T + 12 Months)
-After a 12-month activation window, all outputs in blocks 0 to 100,000 that utilize `OP_CHECKSIG` with raw public keys (P2PK) shall be considered invalid for spending.
+After a 12-month activation window, all outputs in blocks 0 to 100,000 that utilize `OP_CHECKSIG` with raw public keys (P2PK) shall be considered invalid for spending. The activation window is calculated with Median-Time-Past (see Appendix).
 
 * **Mechanism:** A soft-fork rule that makes any transaction attempting to spend these UTXOs invalid.
 * **Target:** Approximately 1.1 million BTC.
@@ -92,6 +92,26 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
+
+## Appendix
+
+### 1. Satoshi‑Era Vault (Tier 1)
+**Criteria** — Any UTXO created at `block_height <= 100000` with a `scriptPubKey` matching the P2PK definition.  
+**Deadline** — `MTP >= T_activation + 31,536,000` seconds (≈ 1 year).  
+**Effect** — Spending attempts **SHALL be invalid**, regardless of signature validity, since quantum‑broken signatures do not constitute proof of ownership.
+
+---
+
+### 2. Legacy Purge (Tier 2)
+**Criteria** — Any UTXO created at `block_height <= 210000` with a `scriptPubKey` matching the P2PK definition.  
+**Deadline** — `MTP >= T_activation + 94,608,000` seconds (≈ 3 years).  
+**Effect** — Spending attempts **SHALL be invalid**, regardless of signature validity, for the same reason: broken signatures are not valid authorization.
+
+---
+
+### 3. The 50‑Year Security Vault
+**Duration** — `1,576,800,000` seconds (≈ 50 solar years).  
+**Renewal** — After each 50‑year interval, the freeze **must be reaffirmed by renewed network consensus**. Without explicit consensus renewal, the rule cannot continue to apply.
 
 
 
