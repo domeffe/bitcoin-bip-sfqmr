@@ -33,6 +33,7 @@ All P2PK and un‑hashed legacy outputs created before block height 210000 (appr
 ### 3. Acceptance of the "Entropy Tax"
 Post-2013 outputs (P2PKH, SegWit, Taproot) are not frozen by this BIP. While they remain vulnerable once a public key is revealed, the hashing of the public key (RIPEMD160(SHA256(P))) provides a temporary "Quantum Shield." We accept the loss of the ~4-5% of supply held by negligent post-2013 users (opt-in) as an unavoidable "Entropy Tax" that does not threaten the systemic floor of the network.
 We acknowledge that addressing post‑2013 quantum vulnerabilities will require deeper technical integration; our primary objective in this BIP is to remove the systemic risk to the network, and it is not feasible to solve the entire quantum‑security problem within a single proposal.
+The pre‑2013 criterion is a heuristic designed to neutralize the largest concentration of quantum‑vulnerable outputs with the best perceived cost‑benefit ratio. By addressing the portion of funds most exposed and least likely to be actively managed, this approach delivers a substantial reduction in potential damage with comparatively limited social and technical impact.
 
 ## Rationale
 * **Why Freeze?** Following the 2010 Value Overflow precedent, the protocol must intervene when a technical flaw threatens the total supply.
@@ -123,6 +124,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
