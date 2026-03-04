@@ -72,15 +72,15 @@ Freezing only very old coins (pre‑2013) that are already cryptographically vul
 
 Eventual criticisms regarding 'precedent risk' ignore the objective reality that cryptographic decay is a physical certainty, not a political choice. SF-QMR does not create a precedent for arbitrary freezing; it establishes a precedent for proactive defense against systemic obsolescence.
 
-## Alternative to an Indefinite Freeze (The 50‑Year Security Vault)
+## Alternative to an Indefinite Freeze (The 25‑Year Security Vault)
 
 ### Mechanism
-- **Vulnerable outputs** (pre‑2013, non‑quantum‑resistant) are frozen for a **fixed period of 50 solar years**.
+- **Vulnerable outputs** (pre‑2013, non‑quantum‑resistant) are frozen for a **fixed period of 25 solar years**.
 - During this period, they cannot be spent, transferred, or re‑activated.
 
 ### Automatic / Consensus Renewal
-- After 50 years, the freeze (i.e., hibernation) must be reaffirmed by renewed network consensus. Without explicit consensus renewal, the rule cannot continue to apply.
-- The "hibernation" can only continue if the network explicitly renews consensus after the 50‑year term.
+- After 25 years, the freeze (i.e., hibernation) must be reaffirmed by renewed network consensus. Without explicit consensus renewal, the rule cannot continue to apply.
+- The "hibernation" can only continue if the network explicitly renews consensus after the 25‑year term.
 
 ### Legal Chaos Under Quantum Conditions: No KYC or Manual Recovery
 Once private keys can be reproduced by anyone with quantum capabilities, the legal system becomes unworkable. Multiple actors could simultaneously claim ownership of the same pre‑2013 outputs, each presenting a perfectly valid signature generated through quantum key‑recovery. Courts would be flooded with parallel, contradictory claims, and no real authority would be able to determine who the legitimate owner was. This creates a state of complete legal chaos, where property rights become unenforceable and every dispute is technically irresolvable.
@@ -91,8 +91,8 @@ Once private keys can be reproduced by anyone with quantum capabilities, the leg
 - It prevents sudden **inflationary pressure** from the potential reactivation of Satoshi‑era coins.
 - It ensures **market stability across generations**, while avoiding any narrative of arbitrary or politically motivated intervention.
 
-### Tier 3 (Optional): 50‑Year Hibernation for All Remaining Vulnerable Addresses
-Tier 3 is an optional extension of SF‑QMR that applies a 50‑year hibernation to all remaining vulnerable addresses, including post‑2013 outputs whose public keys have been revealed. This tier does not address systemic risk—already neutralized by Tier 1 and Tier 2—but offers an additional long‑term protection layer for the broader address space. Tier 3 is not activated by default; it requires explicit community approval and follows the same governance model chosen at activation (either Indefinite Freeze or 50‑Year hibernation with consensus renewal). In theory, after 50 years, holders might regain spendability through zero‑knowledge (ZK) proofs derived from their HD seed, allowing ownership to be demonstrated without revealing a quantum‑breakable public key.
+### Tier 3 (Optional): 25‑Year Hibernation for All Remaining Vulnerable Addresses
+Tier 3 is an optional extension of SF‑QMR that applies a 25‑year hibernation to all remaining vulnerable addresses, including post‑2013 outputs whose public keys have been revealed. This tier does not address systemic risk—already neutralized by Tier 1 and Tier 2—but offers an additional long‑term protection layer for the broader address space. Tier 3 is not activated by default; it requires explicit community approval and follows the same governance model chosen at activation (either Indefinite Freeze or 25‑Year hibernation with consensus renewal). In theory, after 25 years, holders might regain spendability through zero‑knowledge (ZK) proofs derived from their HD seed, allowing ownership to be demonstrated without revealing a quantum‑breakable public key.
 
 **In summary:** Bitcoin must remain immutable only if it stays resistant to cryptographic attacks. A partially opt-in quantum patch represents the right compromise to balance immutability with the preservation of network integrity.
 
@@ -112,9 +112,9 @@ Tier 3 is an optional extension of SF‑QMR that applies a 50‑year hibernation
 
 ---
 
-### 3. The 50‑Year Security Vault
-**Duration** — `1,576,800,000` seconds (≈ 50 solar years).  
-**Renewal** — After each 50‑year interval, the freeze **must be reaffirmed by renewed network consensus**. Without explicit consensus renewal, the rule cannot continue to apply.
+### 3. The 25‑Year Security Vault
+**Duration** — `788.940.000` seconds (≈ 25 solar years).  
+**Renewal** — After each 25‑year interval, the freeze **must be reaffirmed by renewed network consensus**. Without explicit consensus renewal, the rule cannot continue to apply.
 
 ---
 
@@ -129,6 +129,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
