@@ -14,6 +14,7 @@ We distinguish between two types of risk:
 * **Individual Risk (Post-2013):** Negligent users who fail to migrate despite having the tools (Hashed addresses like P2PKH/SegWit provide a first-layer defense until a public key is revealed).
 
 After fixing the "Systemic Risk", the community must decide: move to Tier 3 (and secure the remaining supply) or accept an "Entropy Tax" (probably 4-5% of the total supply that's still open to exploitation). This BIP proposes to save the Integrity of the Network by freezing the most dangerous attack vectors.
+The exposure of pre-2013 P2PK outputs represents a systemic risk to network trust. Acting immediately is essential: a proactive approach prevents a “Vajont”-style risk of irreversible CRQC thefts (referring to the 1963 Vajont Dam disaster, where waiting too long to act led to catastrophic flooding), whereas waiting for public proof would mean intervening after the disaster.
 Crucially, SF‑QMR does not ignore the vulnerability of post‑2013 outputs; it simply recognizes a hierarchy of risk. While Tier 1 (0–100k) and Tier 2 outputs represent a threat to the network’s collective trust and could trigger a collapse of confidence, post‑2013 outputs constitute an Individual‑Security risk. The protocol must prioritize the preservation of the Ledger over the protection of a single inattentive user. Once the ‘Core’ of the supply is secured, the network can debate extensions of SF‑QMR to later tiers without the pressure of an immediate systemic threat.
 
 ## Specification
@@ -128,6 +129,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
