@@ -60,9 +60,10 @@ This approach mirrors the successful SegWit UASF of 2017, where economic nodes e
 
 Alternative recovery schemes like those proposed by BitMEX Research require excessive protocol complexity and node burden; therefore this BIP opts for a simple, enforceable freeze for the most vulnerable and ancient coins.
 
+Taproot spending vulnerabilities and post-2013 address reuse thefts are strictly out of scope for this BIP.
+
 This is not a confiscation, because an ultimatum period allows anyone holding those very old, cryptographically vulnerable pre‑2013 coins to move them. Only coins that remain unmoved after the deadline would be frozen, making the process voluntary rather than coercive.
 Moreover, a quantum‑vulnerable output is comparable to an abandoned property with no door: the protective barrier is gone, and any thief can walk in and take possession. Securing such an output is equivalent to installing a proper door and sealing the entrance so that intruders cannot enter. This is not confiscation; it is the restoration of basic security. The objective is to prevent unauthorized access and ensure that only the legitimate owner could eventually reclaim control once post‑quantum authentication becomes available. Maintaining the Bitcoin infrastructure requires immense collective resources (energy, nodes, security). If the protocol allows a quantum thief to loot systemic supplies (like Satoshi’s coins), it creates a theft against the community. Forcing the network to support "broken locks" that can be opened by any attacker undermines the value of the entire ecosystem. Protecting the ledger is a duty to the stakeholders who sustain it.
-Taproot spending vulnerabilities and post-2013 address reuse thefts are strictly out of scope for this BIP.
 
 Temporary freezes with unlocking through external procedures (such as KYC or legacy key verification) are unsustainable. Once quantum technology can break private keys there is no reliable way to distinguish the legitimate owner from the thief. At that point, any attempt to ‘unfreeze’ coins becomes arbitrary and technically impossible to administer.
 
