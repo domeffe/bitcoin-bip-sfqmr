@@ -68,6 +68,8 @@ Temporary freezes with unlocking through external procedures (such as KYC or leg
 
 Freezing only very old coins (pre‑2013) that are already cryptographically vulnerable prevents any future narrative that governments or developers could arbitrarily freeze inconvenient addresses today, which are still cryptographically protected. It removes the narrative weapon used by “full‑opt‑in” maximalists who argue that any precedent could later be applied to modern and secure addresses. 
 
+Eventual criticisms regarding 'precedent risk' ignore the objective reality that cryptographic decay is a physical certainty, not a political choice. SF-QMR does not create a precedent for arbitrary freezing; it establishes a precedent for proactive defense against systemic obsolescence.
+
 ## Alternative to an Indefinite Freeze (The 50‑Year Security Vault)
 
 ### Mechanism
@@ -125,6 +127,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
