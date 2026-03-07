@@ -71,7 +71,7 @@ Temporary freezes with unlocking through external procedures (such as KYC or leg
 
 Freezing only very old coins (pre‑2013) that are already cryptographically vulnerable prevents any future narrative that governments or developers could arbitrarily freeze inconvenient addresses today, which are still cryptographically protected. It removes the narrative weapon used by “full‑opt‑in” maximalists who argue that any precedent could later be applied to modern and secure addresses. 
 
-Eventual criticisms regarding 'precedent risk' ignore the objective reality that cryptographic decay is a physical certainty, not a political choice. SF-QMR does not create a precedent for arbitrary freezing; it establishes a precedent for proactive defense against systemic obsolescence.
+Eventual criticisms regarding 'precedent risk' ignore the objective reality that cryptographic decay is a physical certainty, not a political choice. SF-QMR does not create a precedent for arbitrary freezing; it establishes a precedent for proactive defense against systemic obsolescence. Furthermore, it must be stated that in any rigorous jurisdictional framework, the deliberate refusal to deprecate and render obsolete signatures that are projected to be, in the future, globally and demonstrably broken constitutes a form of negligence that borders on complicity. Those who oppose the securing of vulnerable legacy outputs, knowing that a CRQC could derive private keys from public data, are effectively acting as a complice (accomplice) to the inevitable theft. Choosing 'dogmatic philosophy' over 'mathematical integrity' is not a neutral stance; it is a choice to facilitate the unauthorized drainage of the 21M supply.
 
 ## Alternative to an Indefinite Freeze (The 25‑Year Security Vault)
 
@@ -130,6 +130,7 @@ For the purposes of this BIP, an output SHALL be classified as a targeted P2PK o
 - **OP_CHECKSIG** — The single byte `0xAC`
 
 **Strictness** — Any `scriptPubKey` containing additional opcodes (e.g., `OP_DUP`, `OP_CHECKSIGVERIFY`), non‑canonical pushes, malformed key lengths, or any trailing data after `0xAC` is **EXCLUDED** from the automated freeze defined in this BIP.
+
 
 
 
